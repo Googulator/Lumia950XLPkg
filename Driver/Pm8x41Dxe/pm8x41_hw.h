@@ -117,8 +117,8 @@
 #define LDO_EN_CTL_REG                        0x46
 
 /* USB3 phy clock */
-#define DIFF_CLK1_EN_CTL                      0x5746
-#define DIFF_CLK1_EN_BIT                      7
+#define DIV_CLK3_EN_CTL                      0x5D46
+#define DIV_CLK3_EN_BIT                      7
 
 #define LNBB_CLK_EN_CTL                      0x5246
 #define LNBB_CLK_EN_BIT                      7

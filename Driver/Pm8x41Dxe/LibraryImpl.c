@@ -34,7 +34,7 @@ STATIC QCOM_PM8X41_PROTOCOL mInternalPm8x41 = {
   pm8x41_enable_mpp,
   pm8x41_enable_mvs,
   pm8x41_get_is_cold_boot,
-  pm8x41_diff_clock_ctrl,
+  pm8x41_div_clock_ctrl,
   pm8x41_clear_pmic_watchdog,
   pmi8994_config_mpp_slave_id,
   pm8xxx_is_battery_broken,
