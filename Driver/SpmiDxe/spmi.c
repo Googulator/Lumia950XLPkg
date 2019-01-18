@@ -147,7 +147,7 @@ static void write_wdata_from_array(uint8_t *array,
  *
  * return value : 0 if success, the error bit set on error
  */
-unsigned int pmic_arb_write_cmd(struct pmic_arb_cmd *cmd,
+UINTN EFIAPI pmic_arb_write_cmd(struct pmic_arb_cmd *cmd,
                                 struct pmic_arb_param *param)
 {
 	uint32_t bytes_written = 0;
@@ -268,7 +268,7 @@ static void read_rdata_into_array(uint8_t *array,
  *
  * return value : 0 if success, the error bit set on error
  */
-unsigned int pmic_arb_read_cmd(struct pmic_arb_cmd *cmd,
+UINTN EFIAPI pmic_arb_read_cmd(struct pmic_arb_cmd *cmd,
                                struct pmic_arb_param *param)
 {
 	uint32_t val = 0;

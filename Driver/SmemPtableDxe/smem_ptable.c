@@ -34,7 +34,7 @@
 #include <Library/StrLib.h>
 
 /* partition table from SMEM */
-static struct smem_ptable smem_ptable = {0};
+static struct smem_ptable smem_ptable = {{0}};
 static unsigned smem_apps_flash_start = 0xFFFFFFFF;
 
 static ram_partition_table ptable;

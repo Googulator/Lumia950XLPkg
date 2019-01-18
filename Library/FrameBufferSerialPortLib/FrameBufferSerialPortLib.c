@@ -105,6 +105,7 @@ void FbConPutCharWithFactor
 )
 {
     char* Pixels;
+    BOOLEAN intstate = 0;
 
     if (!m_Initialized) return;
 
@@ -135,7 +136,7 @@ paint:
 		type != FBCON_TITLE_MSG)
 		return;
 
-    BOOLEAN intstate = ArmGetInterruptState();
+    intstate = ArmGetInterruptState();
 	ArmDisableInterrupts();
 
     Pixels = (void*) FixedPcdGet32(PcdMipiFrameBufferAddress);
