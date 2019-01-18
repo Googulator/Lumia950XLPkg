@@ -119,6 +119,7 @@
 /* USB3 phy clock */
 #define DIV_CLK3_EN_CTL                      0x5D46
 #define DIV_CLK3_EN_BIT                      7
+#define DIV_CLK3_DIV_CTL1                    0x5D43
 
 #define LNBB_CLK_EN_CTL                      0x5246
 #define LNBB_CLK_EN_BIT                      7

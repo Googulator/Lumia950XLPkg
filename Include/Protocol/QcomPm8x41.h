@@ -34,7 +34,7 @@ typedef void     (EFIAPI *pm8x41_config_output_mpp_t)(struct pm8x41_mpp *mpp);
 typedef void     (EFIAPI *pm8x41_enable_mpp_t)(struct pm8x41_mpp *mpp, enum mpp_en_ctl enable);
 typedef void     (EFIAPI *pm8x41_enable_mvs_t)(struct pm8x41_mvs *mvs, enum mvs_en_ctl enable);
 typedef uint8_t  (EFIAPI *pm8x41_get_is_cold_boot_t)(void);
-typedef void     (EFIAPI *pm8x41_div_clock_ctrl_t)(uint8_t enable);
+typedef void     (EFIAPI *pm8x41_div_clock_ctrl_t)(uint8_t enable, uint8_t div);
 typedef void     (EFIAPI *pm8x41_clear_pmic_watchdog_t)(void);
 typedef void     (EFIAPI *pmi8994_config_mpp_slave_id_t)(uint8_t slave_id);
 typedef int      (EFIAPI *pm8xxx_is_battery_broken_t)(void);

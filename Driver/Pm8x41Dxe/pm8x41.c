@@ -563,7 +563,7 @@ uint8_t pm8x41_get_is_cold_boot()
 }
 
 /* api to control div clock */
-void pm8x41_div_clock_ctrl(uint8_t enable)
+void pm8x41_div_clock_ctrl(uint8_t enable, uint8_t div)
 {
 	uint8_t reg;
 
@@ -579,6 +579,8 @@ void pm8x41_div_clock_ctrl(uint8_t enable)
 	}
 
 	REG_WRITE(DIV_CLK3_EN_CTL, reg);
+    
+    REG_WRITE(DIV_CLK3_DIV_CTL1, div);
 }
 
 void pm8x41_clear_pmic_watchdog(void)
