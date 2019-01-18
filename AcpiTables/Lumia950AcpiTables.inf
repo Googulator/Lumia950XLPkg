@@ -31,14 +31,13 @@
 [Sources]
   FADT.aslc
   Include/Platform.h
-  8994/CSRT.asl
-  8994/DBG2.asl
-  8994/DSDT.asl
-  8994/FACS.asl
-  8994/GTDT.asl
-  8994/MADT.asl
-  8994/MCFG.asl
-  8994/SSDT.asl
+  8992/DBG2.asl
+  8992/DSDT.asl
+  8992/FACS.asl
+  8992/GTDT.asl
+  8992/MADT.asl
+  8992/MCFG.asl
+  8992/SSDT.asl
 
 [BuildOptions.AARCH64]
   GCC:*_*_*_CC_FLAGS = -Wno-error=missing-braces
@@ -51,4 +50,4 @@
   MdePkg/MdePkg.dec
   MdeModulePkg/MdeModulePkg.dec
   Lumia950XLPkg/Lumia950XLPkg.dec
-  Lumia950XLPkg/AcpiTables/Lumia950XLAcpiPreGen.dec
+  Lumia950XLPkg/AcpiTables/Lumia950AcpiPreGen.dec

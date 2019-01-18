@@ -127,23 +127,7 @@ READ_LOCK_STATUS   = TRUE
   INF MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf
   INF MdeModulePkg/Universal/Acpi/BootGraphicsResourceTableDxe/BootGraphicsResourceTableDxe.inf
   INF Lumia950XLPkg/Driver/SmBiosTableDxe/SmBiosTableDxe.inf
-
-  # ACPI Tables
-  FILE FREEFORM = 7E374E25-8E01-4FEE-87F2-390C23C606CD {
-    SECTION RAW = Lumia950XLPkg/AcpiTables/8992/DBG2.aml
-    SECTION RAW = Lumia950XLPkg/AcpiTables/8992/DSDT.aml
-    SECTION RAW = Lumia950XLPkg/AcpiTables/8992/FACS.aml
-    SECTION RAW = Lumia950XLPkg/AcpiTables/8992/FADT.acpi
-    SECTION RAW = Lumia950XLPkg/AcpiTables/8992/GTDT.aml
-    SECTION RAW = Lumia950XLPkg/AcpiTables/8992/MADT.aml
-	  SECTION RAW = Lumia950XLPkg/AcpiTables/8992/SSDT.aml
-	  # We are not placing these tables in ACPI right now,
-    # since PCI Express is not fully configured (at least in public).
-    # Exposing these tables will cause the device to crash in boot
-	  # SECTION RAW = Lumia950XLPkg/AcpiTables/8992/MCFG.aml
-	  # SECTION RAW = Lumia950XLPkg/AcpiTables/8992/CSRT.aml
-    SECTION UI = "AcpiTables"
-  }
+  INF RuleOverride = ACPITABLE Lumia950XLPkg/AcpiTables/Lumia950AcpiTables.inf
 
   # Shell
   INF ShellPkg/Application/Shell/Shell.inf

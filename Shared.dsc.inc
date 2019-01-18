@@ -587,7 +587,6 @@
   MdeModulePkg/Universal/Network/IScsiDxe/IScsiDxe.inf
 
   # ACPI and SMBIOS
-  # We use pre-built ACPI tables, so only core components are loaded
   Lumia950XLPkg/Driver/SmBiosTableDxe/SmBiosTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiTableDxe/AcpiTableDxe.inf
   MdeModulePkg/Universal/Acpi/AcpiPlatformDxe/AcpiPlatformDxe.inf

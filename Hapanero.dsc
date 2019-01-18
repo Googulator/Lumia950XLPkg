@@ -39,3 +39,6 @@
   gLumia950XLPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"RX-130"
 
 !include Lumia950XLPkg/Shared.dsc.inc
+
+[Components.common]
+  Lumia950XLPkg/AcpiTables/Lumia950XLAcpiTables.inf # wrong, but this is the best we have for now

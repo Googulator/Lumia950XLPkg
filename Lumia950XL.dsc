@@ -39,3 +39,6 @@
   gLumia950XLPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"RM-1085"
 
 !include Lumia950XLPkg/Shared.dsc.inc
+
+[Components.common]
+  Lumia950XLPkg/AcpiTables/Lumia950XLAcpiTables.inf
