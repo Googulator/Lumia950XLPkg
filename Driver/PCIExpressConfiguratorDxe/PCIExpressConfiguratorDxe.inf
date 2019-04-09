@@ -3,13 +3,12 @@
   BASE_NAME                      = PCIExpressConfiguratorDxe
   FILE_GUID                      = 058f0796-85a9-4cfa-8b84-04bd0d218ddb
   MODULE_TYPE                    = DXE_DRIVER
-  VERSION_STRING                 = 1.0
+  VERSION_STRING                 = 1.1
 
   ENTRY_POINT                    = PCIExpressConfiguratorEntry
 
 [Sources.common]
   PCIExpressConfigurator.c
-  BitOps.c
 
 [Packages]
   ArmPkg/ArmPkg.dec
@@ -35,12 +34,14 @@
 [Protocols]
   gQcomGpioTlmmProtocolGuid
   gQcomMsmPCIExpressInitProtocolGuid
-  gQcomRpmProtocolGuid
+  # Wont enable RPM until future use
+  # gQcomRpmProtocolGuid
   gQcomPm8x41ProtocolGuid
   gQcomBoardProtocolGuid
 
 [Depex]
   gQcomGpioTlmmProtocolGuid AND 
-  gQcomRpmProtocolGuid AND 
+  # Wont enable RPM until future use
+  # gQcomRpmProtocolGuid AND 
   gQcomPm8x41ProtocolGuid AND 
   gQcomBoardProtocolGuid

@@ -28,6 +28,11 @@
 #include <Library/UefiLib.h>
 #include <Library/UefiRuntimeServicesTableLib.h>
 
+/* Build-time generated ReleaseInfo.h will override the default one */
+#include <Resources/ReleaseStampStub.h>
+// Must come in order
+#include <Resources/ReleaseInfo.h>
+
 /**
   Use SystemTable Conout to stop video based Simple Text Out consoles from
   going to the video device. Put up LogoFile on every video device that is a
@@ -41,9 +46,7 @@
   @retval EFI_UNSUPPORTED Logo not found
 **/
 EFI_STATUS
-EnableQuietBoot (
-  IN  EFI_GUID  *LogoFile
-  );
+EnableQuietBoot(IN EFI_GUID *LogoFile);
 
 /**
   Use SystemTable Conout to turn on video based Simple Text Out consoles. The
@@ -53,8 +56,6 @@ EnableQuietBoot (
   @retval EFI_SUCCESS     UGA devices are back in text mode and synced up.
 **/
 EFI_STATUS
-DisableQuietBoot (
-  VOID
-  );
+DisableQuietBoot(VOID);
 
 #endif // _PLATFORM_BM_H_

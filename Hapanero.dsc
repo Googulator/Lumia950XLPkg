@@ -32,10 +32,16 @@
   
 [PcdsFixedAtBuild.common]
   # Platform-specific
+  # gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000         # 3GB
+  # gArmTokenSpaceGuid.PcdSystemMemorySize|0xC0000000         # 3GB
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0xF8000000         # 3.875GB
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0xF8000000         # 3.875GB
   gArmPlatformTokenSpaceGuid.PcdCoreCount|8
   gArmPlatformTokenSpaceGuid.PcdClusterCount|2
   gLumia950XLPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Hapanero"
   gLumia950XLPkgTokenSpaceGuid.PcdSmbiosProcessorModel|"Qualcomm Snapdragon 810 Processor (8994)"
   gLumia950XLPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"RX-130"
+  gLumia950XLPkgTokenSpaceGuid.SynapticsXMax|1080
+  gLumia950XLPkgTokenSpaceGuid.SynapticsYMax|1920
 
 !include Lumia950XLPkg/Shared.dsc.inc
