@@ -34,7 +34,7 @@ void     pm8x41_config_output_mpp(struct pm8x41_mpp *mpp);
 void     pm8x41_enable_mpp(struct pm8x41_mpp *mpp, enum mpp_en_ctl enable);
 void     pm8x41_enable_mvs(struct pm8x41_mvs *mvs, enum mvs_en_ctl enable);
 uint8_t  pm8x41_get_is_cold_boot(void);
-void     pm8x41_diff_clock_ctrl(uint8_t enable);
+void     pm8x41_div_clock_ctrl(uint8_t enable, uint8_t div);
 void     pm8x41_clear_pmic_watchdog(void);
 void     pmi8994_config_mpp_slave_id(uint8_t slave_id);
 void     pm_pwm_enable(bool enable);

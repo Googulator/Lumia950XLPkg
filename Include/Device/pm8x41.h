@@ -188,6 +188,15 @@ struct pm8x41_mvs {
   uint32_t base;
 };
 
+#define XO_DIV_1_0 0
+#define XO_DIV_1 1
+#define XO_DIV_2 2
+#define XO_DIV_4 3
+#define XO_DIV_8 4
+#define XO_DIV_16 5
+#define XO_DIV_32 6
+#define XO_DIV_64 7
+
 #define PM8x41_MMP1_BASE 0xA000
 #define PM8x41_MMP2_BASE 0xA100
 #define PM8x41_MMP3_BASE 0xA200

@@ -36,7 +36,7 @@ STATIC QCOM_PM8X41_PROTOCOL mInternalPm8x41 = {
     pm8x41_enable_mpp,
     pm8x41_enable_mvs,
     pm8x41_get_is_cold_boot,
-    pm8x41_diff_clock_ctrl,
+    pm8x41_div_clock_ctrl,
     pm8x41_clear_pmic_watchdog,
     pmi8994_config_mpp_slave_id,
     pm8xxx_is_battery_broken,
@@ -73,7 +73,18 @@ RETURN_STATUS
 EFIAPI
 Pm8x41ImplLibInitialize(VOID)
 {
+  struct pm8x41_gpio config;
+  config.direction = PM_GPIO_DIR_OUT;
+  config.function = PM_GPIO_FUNC_1;
+  config.pull = PM_GPIO_PULL_RESV_2;
+  config.vin_sel = 1;
+  config.output_buffer = PM_GPIO_OUT_CMOS;
+  config.out_strength = PM_GPIO_OUT_DRIVE_MED;
+  
   gPm8x41 = &mInternalPm8x41;
+  gPm8x41->pm8x41_div_clock_ctrl(1, XO_DIV_4);
+  gPm8x41->pm8x41_gpio_config(17, &config);
+  
 
   return RETURN_SUCCESS;
 }

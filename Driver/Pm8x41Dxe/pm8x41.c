@@ -547,21 +547,23 @@ uint8_t pm8x41_get_is_cold_boot()
   return 1;
 }
 
-/* api to control diff clock */
-void pm8x41_diff_clock_ctrl(uint8_t enable)
+/* api to control div clock */
+void pm8x41_div_clock_ctrl(uint8_t enable, uint8_t div)
 {
   uint8_t reg;
 
-  reg = REG_READ(DIFF_CLK1_EN_CTL);
+  reg = REG_READ(DIV_CLK3_EN_CTL);
 
   if (enable) {
-    reg |= BIT(DIFF_CLK1_EN_BIT);
+    reg |= BIT(DIV_CLK3_EN_BIT);
   }
   else {
-    reg &= ~BIT(DIFF_CLK1_EN_BIT);
+    reg &= ~BIT(DIV_CLK3_EN_BIT);
   }
 
-  REG_WRITE(DIFF_CLK1_EN_CTL, reg);
+  REG_WRITE(DIV_CLK3_EN_CTL, reg);
+    
+  REG_WRITE(DIV_CLK3_DIV_CTL1, div);
 }
 
 void pm8x41_clear_pmic_watchdog(void)
