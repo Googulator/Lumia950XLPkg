@@ -640,6 +640,8 @@ DefinitionBlock ("", "SSDT", 2, "MMO   ", "MSM8994 ", 0x00000011)
             {
                 Name (RBUF, ResourceTemplate ()
                 {
+					/* Hardware SPI bus */
+					/* This isn't working currently, but leaving for posterity */
                     SpiSerialBusV2 (0x0000, PolarityLow, FourWireMode, 0x08,
                         ControllerInitiated, 0x004C4B40, ClockPolarityLow,
                         ClockPhaseFirst, "\\_SB.SP10",
@@ -648,12 +650,21 @@ DefinitionBlock ("", "SSDT", 2, "MMO   ", "MSM8994 ", 0x00000011)
                         {
                             0x00, 0x00, 0x00, 0x01, 0x00, 0x00
                         })
+						
+						
+						
+					/* PMIC GPIO #5 - VBUS supply enable from SmartBoost */
                     GpioIo (Shared, PullNone, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.PM02", 0x00, ResourceConsumer, ,
                         )
                         {   // Pin list
                             0x0620
                         }
+						
+						
+						
+					/* Mux chip control lines */
+					/* PMIC GPIO #8 - polarity GPIO for mux chip */
                     GpioIo (Shared, PullNone, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.PM02", 0x00, ResourceConsumer, ,
                         RawDataBuffer (0x04)  // Vendor Data
@@ -663,6 +674,7 @@ DefinitionBlock ("", "SSDT", 2, "MMO   ", "MSM8994 ", 0x00000011)
                         {   // Pin list
                             0x0638
                         }
+					/* PMIC GPIO #9 - alternate mode selection GPIO for mux chip */
                     GpioIo (Shared, PullNone, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.PM02", 0x00, ResourceConsumer, ,
                         RawDataBuffer (0x04)  // Vendor Data
@@ -672,6 +684,7 @@ DefinitionBlock ("", "SSDT", 2, "MMO   ", "MSM8994 ", 0x00000011)
                         {   // Pin list
                             0x0640
                         }
+					/* PMIC GPIO #10 - enable GPIO for mux chip */
                     GpioIo (Shared, PullNone, 0x0000, 0x0000, IoRestrictionNone,
                         "\\_SB.PM02", 0x00, ResourceConsumer, ,
                         RawDataBuffer (0x04)  // Vendor Data
@@ -681,6 +694,44 @@ DefinitionBlock ("", "SSDT", 2, "MMO   ", "MSM8994 ", 0x00000011)
                         {   // Pin list
                             0x0648
                         }
+					/* PMIC GPIO #4 - UC120 reset line */
+                    GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
+                        "\\_SB.PM02", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x0618
+                        }
+						
+						
+						
+					/* MSM GPIOs #53-56 for SPI bitbanging */
+                    GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
+                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x0035
+                        }
+                    GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
+                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x0036
+                        }
+                    GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
+                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x0037
+                        }
+                    GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
+                        "\\_SB.GIO0", 0x00, ResourceConsumer, ,
+                        )
+                        {   // Pin list
+                            0x0038
+                        }
+						
+						
+					/* MSM GPIO #22 - Plug detection interrupt */
                     GpioInt (Edge, ActiveBoth, ExclusiveAndWake, PullUp, 0x0000,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
@@ -693,6 +744,10 @@ DefinitionBlock ("", "SSDT", 2, "MMO   ", "MSM8994 ", 0x00000011)
                         {   // Pin list
                             0x0016
                         }
+						
+						
+						
+					/* MSM GPIO #95 - UC120 interrupt */
                     GpioInt (Edge, ActiveLow, Exclusive, PullUp, 0x0000,
                         "\\_SB.GIO0", 0x00, ResourceConsumer, ,
                         )
@@ -705,12 +760,10 @@ DefinitionBlock ("", "SSDT", 2, "MMO   ", "MSM8994 ", 0x00000011)
                         {   // Pin list
                             0x005F
                         }
-                    GpioIo (Shared, PullUp, 0x0000, 0x0000, IoRestrictionNone,
-                        "\\_SB.PM02", 0x00, ResourceConsumer, ,
-                        )
-                        {   // Pin list
-                            0x0618
-                        }
+						
+						
+						
+					/* These two GPIOs are used by the ARM32 driver for an unknown purpose */
                     GpioInt (Edge, ActiveHigh, Exclusive, PullUp, 0x0000,
                         "\\_SB.PM02", 0x00, ResourceConsumer, ,
                         RawDataBuffer (0x04)  // Vendor Data
